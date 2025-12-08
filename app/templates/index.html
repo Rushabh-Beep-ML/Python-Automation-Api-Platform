@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Processing Automation Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Data Processing Automation</h1>
+            <p class="subtitle">Clean, format, and enrich your data in seconds</p>
+        </header>
+
+        <main>
+            <div class="form-section">
+                <div class="input-group">
+                    <label for="rawInput">Paste Your Data</label>
+                    <textarea
+                        id="rawInput"
+                        placeholder="Enter text, URLs, or data (one per line)..."
+                        rows="8"
+                        maxlength="1000000"></textarea>
+                    <span class="char-count"><span id="charCount">0</span> characters</span>
+                </div>
+
+                <div class="operations-section">
+                    <h3>Processing Options</h3>
+                    <div class="operations-grid">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="operation" value="clean_whitespace" checked>
+                            <span>Clean Whitespace</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="operation" value="remove_duplicates" checked>
+                            <span>Remove Duplicates</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="operation" value="normalize_case">
+                            <span>Normalize Case</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="operation" value="external_api_enrich">
+                            <span>Enrich via API</span>
+                        </label>
+                    </div>
+
+                    <div id="caseOptions" class="case-options hidden">
+                        <label>Case Type</label>
+                        <select id="caseType">
+                            <option value="lower">Lowercase</option>
+                            <option value="upper">UPPERCASE</option>
+                            <option value="title">Title Case</option>
+                            <option value="sentence">Sentence case</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button id="processBtn" class="process-btn">Process Data</button>
+            </div>
+
+            <div id="resultsSection" class="results-section hidden">
+                <div class="results-header">
+                    <h2>Processing Results</h2>
+                    <button id="downloadBtn" class="download-btn">Download JSON</button>
+                </div>
+
+                <div class="summary-stats">
+                    <div class="stat">
+                        <span class="stat-label">Total Items</span>
+                        <span class="stat-value" id="totalItems">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Operations Applied</span>
+                        <span class="stat-value" id="operationsCount">0</span>
+                    </div>
+                </div>
+
+                <div class="results-output">
+                    <h3>Output Data</h3>
+                    <pre id="resultsJson"></pre>
+                </div>
+
+                <div id="errorSection" class="error-section hidden">
+                    <h3>Error</h3>
+                    <p id="errorMessage"></p>
+                </div>
+            </div>
+
+            <div id="loadingSpinner" class="loading-spinner hidden">
+                <div class="spinner"></div>
+                <p>Processing your data...</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Data Processing Tool. Built with Python & Flask.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
