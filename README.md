@@ -156,5 +156,6 @@ external_api_enrich	Enriches each item using configured API
 Rushabh Ahire
 Backend Developer — Python | APIs | Automation
 
-💼 GitHub: @Rushabh-beep
+💼 GitHub:@Rushabh-beep 
+          @Rushabh-Beep-ML
 🔗 https://www.linkedin.com/in/rushabh-ahire-31131a345?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app
